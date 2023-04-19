@@ -1,0 +1,54 @@
+class GenresController < ApplicationController
+
+  def index
+
+    genre = Genre.all
+
+    render json: genre.as_json
+
+  end
+
+  def create
+    genre = Genre.new(
+      name: params[:name],
+      band_id: params[:band_id]
+    )
+    if genre.save
+      render json: { message: "Genre added successfully!" }, status: :created
+    else
+      render json: { errors: genre.errors.full_messages }, status: :bad_request
+    end
+  end
+
+  def show
+    genre_id = params[:id]
+
+    genre = Genre.find_by[id: genre_id]
+
+    render json: genre.as_json
+  end
+
+  def update
+    genre = Genre.find_by(id: params["id"])
+
+    genre.update(
+      
+      name: params["name"] || genre.name,
+      band_id: params["band_id"] || genre.band_id
+
+    )
+  end
+
+  def destroy
+
+    genre = Genre.find_by(id: params[:id])
+
+    genre.destroy
+
+    render json:{message: "Genre Removed"}
+
+  end
+
+end
+
+end
