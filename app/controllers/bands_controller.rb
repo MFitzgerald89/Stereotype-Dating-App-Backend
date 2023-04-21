@@ -9,7 +9,7 @@ class BandsController < ApplicationController
   end
 
   def create
-    band = Band.new(
+    band = Band.create!(
       name: params[:name],
       notes: params[:notes],
       genre_id: params[:genre_id],

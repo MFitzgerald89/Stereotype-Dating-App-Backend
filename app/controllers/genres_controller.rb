@@ -9,14 +9,14 @@ class GenresController < ApplicationController
   end
 
   def create
-    genre = Genre.new(
+    genre = Genre.create!(
       name: params[:name],
       band_id: params[:band_id]
     )
     if genre.save
-      render json: { message: "Genre added successfully!" }, status: :created
+      render json: {message: "Genre added successfully!"}, status: :created
     else
-      render json: { errors: genre.errors.full_messages }, status: :bad_request
+      render json: {errors: genre.errors.full_messages}, status: :bad_request
     end
   end
 
