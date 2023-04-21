@@ -13,26 +13,30 @@ class UsersController < ApplicationController
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
+      age: params[:age],
+      orientation: params[:orientation],
+      preferred_orientation: params[:preferred_orientation],
+      religion: params[:religion],
+      location: params[:location],
       password: params[:password],
       password_confirmation: params[:password_confirmation]
     )
     if user.save
       render json: { message: "User created successfully" }, status: :created
     else
-      render json: { errors: user.errors.full_messages }, status: :bad_request
+      render json: { message: user.errors.full_messages }, status: :bad_request
     end
   end
 
   def show
-    user_id = params[:id]
 
-    user = User.find_by[id: user_id]
+    user = User.find_by(id: params[:id])
 
     render json: user.as_json
   end
 
   def update
-    user = User.find_by(id: params["id"])
+    user = User.find_by(id: params[:id])
 
     user.update(
       first_name: params["first_name"] || user.first_name,

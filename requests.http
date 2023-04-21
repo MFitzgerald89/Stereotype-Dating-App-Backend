@@ -1,0 +1,40 @@
+@jwt = "jwt"
+
+### Session Create
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+"email": "mike89@test.com",
+"password": "password"
+}
+
+### User Create
+POST http://localhost:3000/users.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{"first_name": "Micheal",
+"last_name": "Fitzgerald",
+"email": "mike89@test.com",
+"age": 33,
+"orientation": "Straight",
+"preferred_orientation": "Straight",
+"religion": "Christian",
+"location": "Pittsburgh",
+"password": "password",
+"password_confirmation": "password"
+}
+
+### User Update
+
+PATCH http://localhost:3000/users/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "first_name": "Michelle"
+}
+
+### User Show
+GET http://localhost:3000/users/1.json
