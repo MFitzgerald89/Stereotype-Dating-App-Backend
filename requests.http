@@ -26,8 +26,17 @@ Authorization: Bearer {{jwt}}
 "password_confirmation": "password"
 }
 
-### User Update
+### User Show
+GET http://localhost:3000/users/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
+### User Index
+GET http://localhost:3000/users.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### User Update
 PATCH http://localhost:3000/users/1.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
@@ -36,5 +45,38 @@ Authorization: Bearer {{jwt}}
   "first_name": "Michelle"
 }
 
-### User Show
-GET http://localhost:3000/users/1.json
+
+### User Destroy
+DELETE http://localhost:3000/users/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Genre Create
+POST http://localhost:3000/genres.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "name": "Rock",
+  "band_id": 1,
+  "user_id": 2
+}
+
+### Genre Show
+GET http://localhost:3000/genres/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Genre Index
+GET http://localhost:3000/genres.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Genre Update
+PATCH http://localhost:3000/genres/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "name": "Math Rock"
+}

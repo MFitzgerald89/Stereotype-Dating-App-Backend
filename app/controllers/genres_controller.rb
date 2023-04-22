@@ -11,7 +11,8 @@ class GenresController < ApplicationController
   def create
     genre = Genre.create!(
       name: params[:name],
-      band_id: params[:band_id]
+      band_id: params[:band_id],
+      user_id: params[:user_id]
     )
     if genre.save
       render json: {message: "Genre added successfully!"}, status: :created
@@ -48,7 +49,5 @@ class GenresController < ApplicationController
     render json:{message: "Genre Removed"}
 
   end
-
-end
 
 end
