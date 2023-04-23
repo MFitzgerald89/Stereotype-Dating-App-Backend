@@ -10,7 +10,7 @@ class SongsController < ApplicationController
 
   def show
 
-    song = Song.find_by(params[:id])
+    song = Song.find_by(id: params[:id])
 
     render json: song.as_json
 
@@ -30,7 +30,7 @@ class SongsController < ApplicationController
 
     else
 
-      render json: {message: erros.full_messages}, status: :bad_request
+      render json: {errors: errors.full_messages}, status: :bad_request
 
     end
 
@@ -38,17 +38,19 @@ class SongsController < ApplicationController
 
   def update
 
-    song = Song.find_by(id: params["id"])
+    song = Song.find_by(id: params[:id])
 
     song.update(
       name: params[:name] || song.name
     )
 
+    render json: song.as_json
+
   end
 
   def destroy
 
-    song = Song.find_by(id: params["id"])
+    song = Song.find_by(id: params[:id])
 
     song.destroy
 

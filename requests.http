@@ -122,3 +122,39 @@ Authorization: Bearer {{jwt}}
 DELETE http://localhost:3000/bands/1.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
+
+
+### Song Create
+POST http://localhost:3000/songs.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "name": "G.O.A.T.",
+  "band_id": 2,
+  "user_id": 2
+}
+
+### Song Show
+GET http://localhost:3000/songs/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Song Index
+GET http://localhost:3000/songs.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Song Update
+PATCH http://localhost:3000/songs/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "name": "G.O.A.T."
+}
+
+### Song Delete
+DELETE http://localhost:3000/songs/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
