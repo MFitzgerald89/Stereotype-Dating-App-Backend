@@ -158,3 +158,40 @@ Authorization: Bearer {{jwt}}
 DELETE http://localhost:3000/songs/1.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
+
+
+### Lyric Create
+POST http://localhost:3000/lyrics.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "lyrics": "Instrumental",
+  "notes": "Greatest Song of All Time!",
+  "song_id": 2,
+  "user_id": 2
+}
+
+### Lyric Show
+GET http://localhost:3000/lyrics/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Lyric Index
+GET http://localhost:3000/lyrics.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Lyric Update
+PATCH http://localhost:3000/lyrics/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "name": "G.O.A.T."
+}
+
+### Lyric Delete
+DELETE http://localhost:3000/lyrics/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}

@@ -10,7 +10,7 @@ class LyricsController < ApplicationController
 
   def show
 
-    lyric = Lyric.find_by(params[:id])
+    lyric = Lyric.find_by(id: params[:id])
 
     render json: lyric.as_json
 
@@ -23,14 +23,14 @@ class LyricsController < ApplicationController
       lyrics: params[:lyrics],
       notes: params[:notes],
       song_id: params[:song_id],
-      user_id: parans[:user_id]
+      user_id: params[:user_id]
     )
 
     if lyric.save 
-      render json: { messages: "Lyric Saved" }
+      render json: {messages: "Lyric Saved"}
 
     else
-      render json { messages: error.full_messages}.status: :bad_request
+      render json {errors: error.full_messages}.status: :bad_request
     end  
 
   end
