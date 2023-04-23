@@ -27,7 +27,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ### User Show
-GET http://localhost:3000/users/1.json
+GET http://localhost:3000/users/2.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
@@ -37,12 +37,12 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 ### User Update
-PATCH http://localhost:3000/users/1.json
+PATCH http://localhost:3000/users/2.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "first_name": "Michelle"
+  "first_name": "Micheal"
 }
 
 
@@ -80,3 +80,45 @@ Authorization: Bearer {{jwt}}
 {
   "name": "Math Rock"
 }
+
+### Genre Delete
+DELETE http://localhost:3000/genres/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+
+### Band Create
+POST http://localhost:3000/bands.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "name": "Polyphia",
+  "notes": "I like them",
+  "genre_id": 2,
+  "user_id": 2
+}
+
+### Band Show
+GET http://localhost:3000/bands/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Band Index
+GET http://localhost:3000/bands.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Band Update
+PATCH http://localhost:3000/bands/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "name": "Polyphia"
+}
+
+### Band Delete
+DELETE http://localhost:3000/bands/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}

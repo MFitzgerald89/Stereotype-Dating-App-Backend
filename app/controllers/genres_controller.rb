@@ -22,9 +22,8 @@ class GenresController < ApplicationController
   end
 
   def show
-    genre_id = params[:id]
-
-    genre = Genre.find_by[id: genre_id]
+    
+    genre = Genre.find_by(id: params[:id])
 
     render json: genre.as_json
   end
@@ -32,12 +31,12 @@ class GenresController < ApplicationController
   def update
     genre = Genre.find_by(id: params["id"])
 
-    genre.update(
+    genre.update!(
       
-      name: params["name"] || genre.name,
-      band_id: params["band_id"] || genre.band_id
-
+      name: params["name"] || genre.name
     )
+
+    render json: genre.as_json
   end
 
   def destroy

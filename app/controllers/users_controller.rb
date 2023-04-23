@@ -47,8 +47,9 @@ class UsersController < ApplicationController
       preferred_orientation: params["preferred_orientation"] || user.preferred_orientation,
       religion: params["religion"] || user.religion,
       location: params["location"] || user.location
+      )
 
-    )
+    render json: user.as_json
   end
 
   def destroy

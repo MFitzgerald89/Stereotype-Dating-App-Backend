@@ -13,19 +13,18 @@ class BandsController < ApplicationController
       name: params[:name],
       notes: params[:notes],
       genre_id: params[:genre_id],
-      user_id: params[:user_id],
+      user_id: params[:user_id]
     )
     if band.save
-      render json: { message: "band added successfully" }, status: :created
+      render json: {message: "Band Added Successfully"}, status: :created
     else
-      render json: { errors: band.errors.full_messages }, status: :bad_request
+      render json: {errors: band.errors.full_messages}, status: :bad_request
     end
   end
 
   def show
-    band_id = params[:id]
 
-    band = Band.find_by[id: band_id]
+    band = Band.find_by(id: params[:id])
 
     render json: band.as_json
   end
@@ -41,6 +40,9 @@ class BandsController < ApplicationController
       user_id: params["user_id"] || band.user_id
 
     )
+
+    render json: band.as_json
+
   end
 
   def destroy
@@ -52,7 +54,5 @@ class BandsController < ApplicationController
     render json:{message: "Band Removed"}
 
   end
-
-end
 
 end
