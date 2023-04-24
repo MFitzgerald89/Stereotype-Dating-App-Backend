@@ -20,7 +20,8 @@ class MatchesController < ApplicationController
 
     user_id = params[:user_id]
     match_id = params[:match_id]
-    
+    pp User.exists?(user_id)
+    pp User.exists?(match_id)
       # Check if the user and potential match both exist
     if User.exists?(user_id) && User.exists?(match_id)
     # Create the match

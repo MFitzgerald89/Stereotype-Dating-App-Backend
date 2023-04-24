@@ -1,11 +1,11 @@
-@jwt = "jwt"
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2ODI0NTkyNjl9.j7zApblRw2tuNyBo0yWUkGFWNAgzg0dYSsiCUIUqMeg
 
 ### Session Create
 POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-"email": "mike89@test.com",
+"email": "casey99@test.com",
 "password": "password"
 }
 
@@ -14,16 +14,17 @@ POST http://localhost:3000/users.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
-{"first_name": "Micheal",
+{"first_name": "Bill",
 "last_name": "Fitzgerald",
-"email": "mike89@test.com",
+"email": "Bill89@test.com",
 "age": 33,
 "orientation": "Straight",
 "preferred_orientation": "Straight",
 "religion": "Christian",
 "location": "Pittsburgh",
 "password": "password",
-"password_confirmation": "password"
+"password_confirmation": "password",
+"matched_user_id": 4
 }
 
 ### User Show
@@ -188,10 +189,45 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "name": "G.O.A.T."
+  "notes": "The G.O.A.T.!"
 }
 
 ### Lyric Delete
 DELETE http://localhost:3000/lyrics/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+
+### Match Create
+POST http://localhost:3000/matches.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "user_id": 4,
+  "match_id": 2
+}
+
+### Match Show
+GET http://localhost:3000/matches/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Match Index
+GET http://localhost:3000/matches.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Match Update
+PATCH http://localhost:3000/matches/1.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "notes": "The G.O.A.T.!"
+}
+
+### Match Delete
+DELETE http://localhost:3000/matches/1.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}

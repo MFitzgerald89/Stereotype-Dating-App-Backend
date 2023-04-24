@@ -30,7 +30,7 @@ class LyricsController < ApplicationController
       render json: {messages: "Lyric Saved"}
 
     else
-      render json {errors: error.full_messages}.status: :bad_request
+      render json: {errors: lyric.errors.full_messages},status: :bad_request
     end  
 
   end
@@ -40,9 +40,12 @@ class LyricsController < ApplicationController
     lyric = Lyric.find_by(id: params["id"])
 
     lyric.update(
-      lyrics: params["lyrics"] || lyrics.lyrics,
-      notes: params["notes"] || lyrics.notes
+      
+      lyrics: params["lyrics"] || lyric.lyrics,
+      notes: params["notes"] || lyric.notes
     )
+
+    render json: lyric.as_json
 
   end
 
