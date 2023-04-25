@@ -209,7 +209,7 @@ Authorization: Bearer {{jwt}}
 }
 
 ### Match Show
-GET http://localhost:3000/matches/1.json
+GET http://localhost:3000/matches/3.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 

@@ -10,7 +10,7 @@ class MatchesController < ApplicationController
 
   def show
 
-    match = Match.find_by(params[:id])
+    match = Match.find_by(id: params[:id])
 
     render json: match.as_json
 
@@ -25,7 +25,7 @@ class MatchesController < ApplicationController
       # Check if the user and potential match both exist
     if User.exists?(user_id) && User.exists?(match_id)
     # Create the match
-      match = Match.create(user_id: user_id, match_id: match_id)
+      match = Match.create!(user_id: user_id, match_id: match_id)
     
       render json: { message: "Match created successfully", match: match }
     else
