@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
     user = User.find_by(id: params[:id])
 
-    render json: user.as_json(methods: :user_matches)
+    render json: user.as_json(methods: [:user_matches, :genre_names])
 
   end
 

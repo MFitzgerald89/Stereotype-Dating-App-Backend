@@ -8,6 +8,10 @@ class User < ApplicationRecord
   has_many :songs
   has_many :lyrics
 
+  def genre_names
+    return genres.pluck(:name)
+  end
+
   def user_matches
     people_i_like = []
     people_who_like_me = []
