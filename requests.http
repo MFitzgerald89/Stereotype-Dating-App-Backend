@@ -14,17 +14,16 @@ POST http://localhost:3000/users.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
-{"first_name": "Bill",
-"last_name": "Fitzgerald",
-"email": "Bill89@test.com",
+{"first_name": "Will",
+"last_name": "Witzgerald",
+"email": "Will89@test.com",
 "age": 33,
 "orientation": "Straight",
 "preferred_orientation": "Straight",
 "religion": "Christian",
 "location": "Pittsburgh",
 "password": "password",
-"password_confirmation": "password",
-"matched_user_id": 4
+"password_confirmation": "password"
 }
 
 ### User Show

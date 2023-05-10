@@ -48,7 +48,6 @@ class UsersController < ApplicationController
       preferred_orientation: params["preferred_orientation"] || user.preferred_orientation,
       religion: params["religion"] || user.religion,
       location: params["location"] || user.location
-      # matched_user_id: params["matched_user_id"] || user.matched_user_id
       )
 
     render json: user.as_json
