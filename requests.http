@@ -37,12 +37,12 @@ Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 ### User Update
-PATCH http://localhost:3000/users/2.json
+PATCH http://localhost:3000/users/3.json
 Content-Type: application/json
 Authorization: Bearer {{jwt}}
 
 {
-  "first_name": "Micheal"
+  "photos": "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
 }
 
 
