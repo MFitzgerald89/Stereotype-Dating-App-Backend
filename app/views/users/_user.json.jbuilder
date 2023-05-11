@@ -1,0 +1,15 @@
+json.id user.id
+json.first_name user.first_name
+json.last_name user.last_name
+json.email user.email
+json.age user.age
+json.orientation user.orientation
+json.preferred_orientation user.preferred_orientation
+json.religion user.religion
+json.location user.location
+json.matches user.matches
+json.songs user.songs
+json.genres user.genres
+json.bands user.bands
+json.lyrics user.lyrics
+json.photos user.photos

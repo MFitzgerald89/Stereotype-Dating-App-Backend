@@ -2,9 +2,9 @@ class UsersController < ApplicationController
 
   def index
 
-    user = User.all
+    @users = User.all
 
-    render json: user.as_json
+    render :index
 
   end
 
@@ -14,13 +14,13 @@ class UsersController < ApplicationController
       last_name: params[:last_name],
       email: params[:email],
       age: params[:age],
-      photos: params[:photos],
       orientation: params[:orientation],
       preferred_orientation: params[:preferred_orientation],
       religion: params[:religion],
       location: params[:location],
       password: params[:password],
-      password_confirmation: params[:password_confirmation]
+      password_confirmation: params[:password_confirmation],
+      photos: params[:photos]
     )
     if user.save
       render json: { message: "User created successfully" }, status: :created
@@ -45,11 +45,11 @@ class UsersController < ApplicationController
       last_name: params["last_name"] || user.last_name,
       email: params["email"] || user.email,
       age: params["age"] || user.age,
-      photos: params["photos"] || user.photos,
       orientation: params["orientation"] || user.orientation,
       preferred_orientation: params["preferred_orientation"] || user.preferred_orientation,
       religion: params["religion"] || user.religion,
-      location: params["location"] || user.location
+      location: params["location"] || user.location,
+      photos: params["photos"] || user.photos
       )
 
     render json: user.as_json

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :bands
   has_many :songs
   has_many :lyrics
+  has_many :photos
 
   def genre_names
     return genres.pluck(:name)
