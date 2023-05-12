@@ -12,6 +12,11 @@ Rails.application.routes.draw do
   patch "/users/:id" => "users#update"
   delete "/users/:id" => "users#destroy"
 
+  post "/photos" => "photos#create"
+  get "/photos" => "photos#index"
+  patch "/photos/:id" => "photos#update"
+  delete "/photos/:id" => "photos#destroy"
+
   post "/genres" => "genres#create"
   get "/genres/:id" => "genres#show"
   get "/genres" => "genres#index"

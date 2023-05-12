@@ -1,11 +1,11 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2ODI0NTkyNjl9.j7zApblRw2tuNyBo0yWUkGFWNAgzg0dYSsiCUIUqMeg
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2ODM5MzI2OTB9.NujvPJ1Yyga2cB9L8dYYUVXDAzlY9m3LJkPckMs2lvY
 
 ### Session Create
 POST http://localhost:3000/sessions.json
 Content-Type: application/json
 
 {
-"email": "casey99@test.com",
+"email": "mike89@test.com",
 "password": "password"
 }
 
@@ -25,6 +25,24 @@ Authorization: Bearer {{jwt}}
 "password": "password",
 "password_confirmation": "password"
 }
+
+### Photo Create
+POST http://localhost:3000/photos.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+{"user_id": 2,
+  "image": "https://assets.medpagetoday.net/media/images/77xxx/77966.jpg?width=0.6" }
+
+### Photo Index
+GET http://localhost:3000/photos.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+
+### Photo Destroy
+DELETE http://localhost:3000/photos/2.json
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
 
 ### User Show
 GET http://localhost:3000/users/4.json
