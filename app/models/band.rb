@@ -1,4 +1,4 @@
 class Band < ApplicationRecord
-  belongs_to :genre
+  has_many :genres
   has_many :songs
 end

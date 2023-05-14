@@ -26,24 +26,6 @@ Authorization: Bearer {{jwt}}
 "password_confirmation": "password"
 }
 
-### Photo Create
-POST http://localhost:3000/photos.json
-Content-Type: application/json
-Authorization: Bearer {{jwt}}
-
-{"user_id": 2,
-  "image": "https://assets.medpagetoday.net/media/images/77xxx/77966.jpg?width=0.6" }
-
-### Photo Index
-GET http://localhost:3000/photos.json
-Content-Type: application/json
-Authorization: Bearer {{jwt}}
-
-### Photo Destroy
-DELETE http://localhost:3000/photos/2.json
-Content-Type: application/json
-Authorization: Bearer {{jwt}}
-
 ### User Show
 GET http://localhost:3000/users/4.json
 Content-Type: application/json

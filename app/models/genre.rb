@@ -1,4 +1,4 @@
 class Genre < ApplicationRecord
   belongs_to :user
-  has_many :bands
+  belongs_to :band, optional: true
 end
