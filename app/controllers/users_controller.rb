@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     photo_url = params[:photos]
     if params[:photos]
       response = Cloudinary::Uploader.upload(params["photos"], resource_type: :auto)
-      photo_url = response("secure_url")
+      photo_url = response["secure_url"]
     end
   
 
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       location: params[:location],
       password: params[:password],
       password_confirmation: params[:password_confirmation],
-      photos: params[:photos]
+      photos: photo_url
     )
     if user.save
       g_array = params[:genres].split(",")
