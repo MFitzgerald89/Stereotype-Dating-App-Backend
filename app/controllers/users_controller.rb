@@ -28,7 +28,8 @@ class UsersController < ApplicationController
       location: params[:location],
       password: params[:password],
       password_confirmation: params[:password_confirmation],
-      photos: photo_url
+      photos: photo_url, 
+      gender: params[:gender]
     )
     if user.save
       g_array = params[:genres].split(",")

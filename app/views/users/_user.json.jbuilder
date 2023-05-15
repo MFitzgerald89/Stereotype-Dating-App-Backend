@@ -13,3 +13,4 @@ json.genres user.genres
 json.bands user.bands
 json.lyrics user.lyrics
 json.photos user.photos
+json.gender user.gender
